@@ -8,7 +8,9 @@ builder.Services.AddDbContext<DataContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Add controllers services
-builder.Services.AddControllers(); // Add this line to configure controllers services
+builder.Services.AddControllers();
+builder.Services.AddCors();
+
 
 var app = builder.Build();
 
@@ -27,7 +29,9 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+app.UseCors(builder => builder.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200"));
+
 // Map API controllers
-app.MapControllers(); // Add this line to map API controllers
+app.MapControllers();
 
 app.Run();
