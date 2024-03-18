@@ -13,9 +13,10 @@ public static class ApplicationServiceExtensions
             options.UseSqlite(config.GetConnectionString("DefaultConnection")));
 
         // Add controllers services
-        
         services.AddCors();
         services.AddScoped<ITokenService, TokenService>();
+        services.AddScoped<IUserRepository, UserRepository>();
+        services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
         return services;
     }
