@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 
 @Component({
@@ -10,7 +9,7 @@ export class HomeComponent {
     registerMode = false;
     users: any;
 
-    constructor(private http: HttpClient){
+    constructor(){
 
     }
 
