@@ -10,10 +10,11 @@ namespace API.Data
     {
         private readonly DataContext _context;
         private readonly IMapper _mapper;
+
         public UserRepository(DataContext context, IMapper mapper)
         {
-            _mapper = mapper;
             _context = context;
+            _mapper = mapper;
         }
 
         public async Task<MemberDto> GetMemberAsync(string username)
@@ -26,7 +27,7 @@ namespace API.Data
 
         public async Task<IEnumerable<MemberDto>> GetMembersAsync()
         {
-            return await _context.Users 
+            return await _context.Users
                 .ProjectTo<MemberDto>(_mapper.ConfigurationProvider)
                 .ToListAsync();
         }
@@ -45,9 +46,7 @@ namespace API.Data
 
         public async Task<IEnumerable<AppUser>> GetUsersAsync()
         {
-            return await _context.Users
-                .Include(p => p.Photos)
-                .ToListAsync();
+            return await _context.Users.ToListAsync();
         }
 
         public async Task<bool> SaveAllAsync()
