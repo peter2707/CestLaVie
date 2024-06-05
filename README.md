@@ -1,7 +1,7 @@
 # C'est La Vie - Social App
 
 ## Description
-C'est La Vie is a modern social application built with ASP.NET Core and Angular. This project serves as a comprehensive guide for developers who want to enhance their skills in these technologies. From setting up the development environment to deploying the application, this course covers every aspect.
+C'est La Vie is a modern social application built with ASP.NET Core and Angular.
 
 ## Technologies Used
 - ASP.NET Core (C#)
